@@ -7,9 +7,15 @@ const HomePage: React.FC = (): JSX.Element => {
 	return (
 		<div style={{
 			display: "flex",
+			width: "100vw",
+			height: "100vh",
 			flexDirection: "column",
 			justifyContent: "space-evenly",
-			alignItems: "center"
+			alignItems: "center",
+			backgroundColor: "#e5e5f7",
+			opacity: "0.9",
+			background: "radial-gradient(circle, transparent 20%, #e5e5f7 20%, #e5e5f7 80%, transparent 80%, transparent), radial-gradient(circle, transparent 20%, #e5e5f7 20%, #e5e5f7 80%, transparent 80%, transparent) 37.5px 37.5px, linear-gradient(#444cf7 3px, transparent 3px) 0 -1.5px, linear-gradient(90deg, #444cf7 3px, #e5e5f7 3px) -1.5px 0",
+			backgroundSize: "75px 75px, 75px 75px, 37.5px 37.5px, 37.5px 37.5px"
 		}}>
 			<main style={{
 				width: "100%",
@@ -52,12 +58,14 @@ const HomePage: React.FC = (): JSX.Element => {
 						borderBottom: "4px solid black",
 					}}>MonoShot</em>
 				</span>
-				<Button style={{
-					marginTop: "1em",
-					padding: "0.5em 1em"
-				}} variant="primary">
-					Give it a go 👍🏽
-				</Button>
+				<Link href="/app">
+					<Button style={{
+						marginTop: "1em",
+						padding: "0.5em 1em"
+					}} variant="primary">
+						Give it a go 👍🏽
+					</Button>
+				</Link>
 			</main>
 		</div >
 	)
