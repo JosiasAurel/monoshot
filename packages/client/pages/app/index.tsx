@@ -44,13 +44,14 @@ const AppPage: React.FC = (): JSX.Element => {
                 display: "flex",
                 flexDirection: "row",
                 justifyContent: "space-between",
-                alignItems: "center"
+                alignItems: "center",
+                backgroundColor: "blueviolet"
             }}>
-                <h2>ShaveShot</h2>
+                <h2 style={{ margin: "0.5em", fontWeight: "bolder", color: "white" }}>ShaveShot</h2>
                 {user.isSignedIn ? <UserButton /> : ""}
             </header>
 
-            <div>
+            <div style={{ margin: "2em 0" }}>
                 <div style={{
                     display: "flex",
                     flexDirection: "row",
