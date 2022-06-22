@@ -47,7 +47,7 @@ const AppPage: React.FC = (): JSX.Element => {
                 alignItems: "center",
                 backgroundColor: "blueviolet"
             }}>
-                <h2 style={{ margin: "0.5em", fontWeight: "bolder", color: "white" }}>ShaveShot</h2>
+                <h2 style={{ margin: "0.5em", fontWeight: "bolder", color: "white" }}>CutShot</h2>
                 {user.isSignedIn ? <UserButton /> : ""}
             </header>
 
