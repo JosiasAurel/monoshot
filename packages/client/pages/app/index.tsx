@@ -1,7 +1,8 @@
 
 import React from "react";
-import { UserButton } from "@clerk/nextjs";
+import { UserButton, useUser } from "@clerk/nextjs";
 import Service from "../../components/Service";
+import { Form, Button } from "react-bootstrap";
 
 type Service = {
     title: string
@@ -11,16 +12,20 @@ type Service = {
 };
 
 const AppPage: React.FC = (): JSX.Element => {
+
+    const user = useUser();
     const sampleServices: Service[] = [
         {
             title: "Hair Cut",
             description: "I will cut your hair till your skull cries out loud.",
-            price: "$100"
+            price: "$100",
+            photo: "/hair1.webp"
         },
         {
             title: "Hair Cut",
             description: "I will cut your hair till your skull cries out loud.",
-            price: "$100"
+            price: "$100",
+            photo: "/hair2.jpg"
         },
         {
             title: "Hair Cut",
@@ -41,17 +46,39 @@ const AppPage: React.FC = (): JSX.Element => {
                 justifyContent: "space-between",
                 alignItems: "center"
             }}>
-                <h2>MonoShot</h2>
-                <UserButton />
+                <h2>ShaveShot</h2>
+                {user.isSignedIn ? <UserButton /> : ""}
             </header>
 
-            <div style={{
-                display: "grid",
-                gridTemplateColumns: "1fr 1fr 1fr"
-            }}>
-                {sampleServices.map(service => (
-                    <Service {...service} />
-                ))}
+            <div>
+                <div style={{
+                    display: "flex",
+                    flexDirection: "row",
+                    justifyContent: "space-evenly",
+                    alignItems: "center",
+                    width: "100%"
+                }}>
+                    <Form style={{
+                        width: "60%",
+                        display: "flex",
+                        justifyContent: "space-evenly",
+                        flexDirection: "column",
+                        alignItems: "center"
+                    }}>
+                        <Form.Control type="text" placeholder="Search something..." />
+                        <Button style={{ margin: "0.5em" }}>
+                            Find 🔍
+                        </Button>
+                    </Form>
+                </div>
+                <div style={{
+                    display: "grid",
+                    gridTemplateColumns: "1fr 1fr 1fr"
+                }}>
+                    {sampleServices.map(service => (
+                        <Service {...service} />
+                    ))}
+                </div>
             </div>
         </div>
     )

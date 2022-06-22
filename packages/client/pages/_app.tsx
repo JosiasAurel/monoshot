@@ -8,7 +8,7 @@ import "../styles/global.css";
 
 const App: React.FC<AppProps> = ({ Component, pageProps }): JSX.Element => {
 
-    const publicPages: string[] = ["/"];
+    const publicPages: string[] = ["/", "/app"];
     const { pathname } = useRouter();
 
     const isPublicPage: boolean = publicPages.includes(pathname);

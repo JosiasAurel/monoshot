@@ -14,17 +14,28 @@ const Service: React.FC<Props> = ({ title, description, price, photo }): JSX.Ele
         <Card style={{
             margin: "1em"
         }}>
-            <Card.Img variant="top" src="holder.js/100px180" />
-            <Card.Body>
+            <Card.Img variant="top" src={photo ? photo : "./none.svg"} />
+            <Card.Body style={{
+                display: "flex",
+                flexDirection: "column",
+                justifyContent: "space-between",
+            }}>
                 <Card.Title>
                     {title}
                 </Card.Title>
                 <Card.Text>
                     {description}
                 </Card.Text>
-                <Button>
-                    Contact
-                </Button>
+                <span style={{
+                    display: "flex",
+                    justifyContent: "space-evenly",
+                    alignItems: "center"
+                }}>
+                    <h3> {price} </h3>
+                    <Button>
+                        Contact
+                    </Button>
+                </span>
             </Card.Body>
         </Card>
     )
