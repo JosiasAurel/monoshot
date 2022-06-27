@@ -1,6 +1,8 @@
 
 import React from "react";
 import { Card, Button } from "react-bootstrap";
+import Image from "next/image";
+import styles from "../styles/components.module.css";
 
 type Props = {
     title: string
@@ -11,33 +13,34 @@ type Props = {
 
 const Service: React.FC<Props> = ({ title, description, price, photo }): JSX.Element => {
     return (
-        <Card style={{
-            margin: "1em"
-        }}>
-            <Card.Img variant="top" src={photo ? photo : "./none.svg"} />
-            <Card.Body style={{
+        <div className={styles.serviceCard}>
+            {photo ?
+                <Image loading="lazy" src={photo} width="150%" height="80%" />
+                :
+                <Image src="/none.svg" width="100%" height="80%" />
+            }
+            <div style={{
                 display: "flex",
                 flexDirection: "column",
                 justifyContent: "space-between",
             }}>
-                <Card.Title>
-                    {title}
-                </Card.Title>
-                <Card.Text>
+                <h3 style={{ fontWeight: "bold" }}> {title} </h3>
+                <p>
                     {description}
-                </Card.Text>
+                </p>
                 <span style={{
                     display: "flex",
-                    justifyContent: "space-evenly",
-                    alignItems: "center"
+                    justifyContent: "space-between",
+                    alignItems: "center",
+                    width: "100%"
                 }}>
                     <h3> {price} </h3>
                     <Button>
                         Contact
                     </Button>
                 </span>
-            </Card.Body>
-        </Card>
+            </div>
+        </div>
     )
 }
 
