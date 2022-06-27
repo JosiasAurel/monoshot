@@ -10,6 +10,7 @@
     border: solid 1px grey;
     border-radius: 10px;
     padding-bottom: 0.5em;
+    word-wrap: break-word;
 }
 
 .serviceCard span {

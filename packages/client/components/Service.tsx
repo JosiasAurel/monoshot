@@ -23,9 +23,10 @@ const Service: React.FC<Props> = ({ title, description, price, photo }): JSX.Ele
                 display: "flex",
                 flexDirection: "column",
                 justifyContent: "space-between",
+                maxWidth: "80%"
             }}>
                 <h3 style={{ fontWeight: "bold" }}> {title} </h3>
-                <p>
+                <p style={{ wordWrap: "break-word", maxWidth: "80%" }}>
                     {description}
                 </p>
                 <span style={{
