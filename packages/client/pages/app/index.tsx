@@ -50,7 +50,6 @@ const AppPage: React.FC = (): JSX.Element => {
                 <h2 style={{ margin: "0.5em", fontWeight: "bolder", color: "white" }}>CutShot</h2>
                 {user.isSignedIn ? <UserButton /> : ""}
             </header>
-
             <div style={{ margin: "2em 0" }}>
                 <div style={{
                     display: "flex",
