@@ -1,7 +1,7 @@
 
 import React from "react";
-import { Card, Button } from "react-bootstrap";
 import Image from "next/image";
+import Button from "./Button";
 import styles from "../styles/components.module.css";
 
 type Props = {

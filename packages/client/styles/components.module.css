@@ -23,3 +23,13 @@
     border-radius: 10px 10px 0 0;
 }
 /* end service card */
+
+/* button */
+.button {
+    border: solid transparent;
+    border-radius: 8px;
+    color: white;
+    background-color: teal;
+    padding: 0.4em 0.8em;
+}
+/* end  button */
