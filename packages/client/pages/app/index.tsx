@@ -1,6 +1,7 @@
 
 import React from "react";
 import { UserButton, useUser } from "@clerk/nextjs";
+import Link from "next/link";
 import Service from "../../components/Service";
 import Button from "../../components/Button";
 import styles from "../../styles/app.module.css";
@@ -48,7 +49,9 @@ const AppPage: React.FC = (): JSX.Element => {
                 alignItems: "center",
                 backgroundColor: "teal"
             }}>
-                <h2 style={{ margin: "0.5em", fontWeight: "bolder", color: "white" }}>CutShot</h2>
+                <Link href="/">
+                    <h2 style={{ margin: "0.5em", fontWeight: "bolder", color: "white" }}>CutShot</h2>
+                </Link>
                 {user.isSignedIn ? <UserButton /> : ""}
             </header>
             <div style={{ margin: "2em 0" }}>
