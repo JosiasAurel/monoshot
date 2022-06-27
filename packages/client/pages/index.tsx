@@ -2,9 +2,33 @@
 import React, { useEffect, useState } from "react";
 import Link from "next/link";
 import Service from "../components/Service";
+import Feature from "../components/Feature";
 import styles from "../styles/index.module.css";
 
 const HomePage: React.FC = (): JSX.Element => {
+
+	const features: { icon: string, title: string, description: string }[] = [
+		{
+			icon: "🔍",
+			title: "Browse/Search Haircuts",
+			description: "Browse or search haircuts published by various barbers."
+		},
+		{
+			icon: "🤙🏽",
+			title: "Get In Touch",
+			description: "Find barber's contact and get in touch for various offers."
+		},
+		{
+			icon: "📢",
+			title: "Show your work",
+			description: "If you are a barber, publish hairstyles you offer so people can discover you."
+		},
+		{
+			icon: "📜",
+			title: "Keep Track",
+			description: "Keep track of all your offers in one place. CutShot keeps a record of your bookings."
+		}
+	];
 
 	const sampleHaircuts = [
 		{
@@ -116,6 +140,30 @@ const HomePage: React.FC = (): JSX.Element => {
 								/>
 							</div>
 						</div>
+					</div>
+				</div>
+			</div>
+
+			<div style={{ margin: "2em 0" }}>
+				<h2 style={{ textAlign: "center" }}>Features</h2>
+				<div style={{
+					display: "flex",
+					justifyContent: "center",
+					alignItems: "center"
+				}}>
+					<div style={{
+						display: "flex",
+						flexDirection: "row",
+						justifyContent: "space-evenly",
+						alignItems: "center"
+					}}>
+						{features.map(({ icon, title, description }) => (
+							<Feature
+								icon={icon}
+								title={title}
+								description={description}
+							/>
+						))}
 					</div>
 				</div>
 			</div>

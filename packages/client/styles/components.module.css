@@ -34,3 +34,20 @@
     padding: 0.4em 0.8em;
 }
 /* end  button */
+
+/* feature card */
+.featureCard {
+    border: solid 1px grey;
+    border-radius: 10px;
+    width: 300px;
+    padding: 1em;
+    transition: all 0.2s ease-in-out !important;
+    margin: 1em 0.5em;
+    height: 300px;
+}
+
+.featureCard:hover {
+    color: white;
+    background-color: teal;
+}
+/* end feature card */
