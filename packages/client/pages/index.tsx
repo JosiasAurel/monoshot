@@ -3,6 +3,7 @@ import React, { useEffect, useState } from "react";
 import Link from "next/link";
 import Service from "../components/Service";
 import Feature from "../components/Feature";
+import Button from "../components/Button";
 import styles from "../styles/index.module.css";
 
 const HomePage: React.FC = (): JSX.Element => {
@@ -75,12 +76,13 @@ const HomePage: React.FC = (): JSX.Element => {
 				}}>
 					<h1>Yo! <br /> Wanna Hair Cut ?</h1>
 					<p style={{ marginLeft: "2em", color: "grey", fontSize: "1.5em" }}>CutShot is connecting customers with experienced barbers</p>
-					<button style={{
-						marginLeft: "3em",
-						padding: "0.5em 2em"
-					}}>
-						What is this ?
-					</button>
+					<Link href="/app">
+						<span style={{ marginLeft: "2em" }}>
+							<Button>
+								Find My Style
+							</Button>
+						</span>
+					</Link>
 				</div>
 
 				<Service

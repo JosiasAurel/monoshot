@@ -1,0 +1,21 @@
+
+.searchForm {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    align-items: center;
+    width: 100%;
+    margin: 1em 0;
+}
+
+.searchForm input {
+    border: solid transparent;
+    background-color: rgb(240, 240, 240);
+    border-radius: 8px;
+    padding: 0.5em 1em;
+    width: 80%;
+}
+
+.searchForm input:focus {
+    outline: none;
+}

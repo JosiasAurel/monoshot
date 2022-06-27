@@ -2,7 +2,8 @@
 import React from "react";
 import { UserButton, useUser } from "@clerk/nextjs";
 import Service from "../../components/Service";
-import { Form, Button } from "react-bootstrap";
+import Button from "../../components/Button";
+import styles from "../../styles/app.module.css";
 
 type Service = {
     title: string
@@ -45,7 +46,7 @@ const AppPage: React.FC = (): JSX.Element => {
                 flexDirection: "row",
                 justifyContent: "space-between",
                 alignItems: "center",
-                backgroundColor: "blueviolet"
+                backgroundColor: "teal"
             }}>
                 <h2 style={{ margin: "0.5em", fontWeight: "bolder", color: "white" }}>CutShot</h2>
                 {user.isSignedIn ? <UserButton /> : ""}
@@ -58,29 +59,33 @@ const AppPage: React.FC = (): JSX.Element => {
                     alignItems: "center",
                     width: "100%"
                 }}>
-                    <Form style={{
-                        width: "60%",
-                        display: "flex",
-                        justifyContent: "space-evenly",
-                        flexDirection: "column",
-                        alignItems: "center"
-                    }}>
-                        <Form.Control type="text" placeholder="Search something..." />
-                        <Button style={{ margin: "0.5em" }}>
-                            Find 🔍
+                    <form className={styles.searchForm}>
+                        <input type="text" placeholder="Search for something e.g punk hair cut" />
+                        <Button type="submit">
+                            Find
                         </Button>
-                    </Form>
+                    </form>
                 </div>
                 <div style={{
-                    display: "grid",
-                    gridTemplateColumns: "1fr 1fr 1fr"
+                    display: "flex",
+                    justifyContent: "center",
+                    alignItems: "center",
+                    width: "100%"
                 }}>
-                    {sampleServices.map(service => (
-                        <Service {...service} />
-                    ))}
+
+                    <div style={{
+                        margin: "1em 0.5em",
+                        display: "grid",
+                        gridTemplateColumns: "1fr 1fr 1fr",
+                        width: "90%"
+                    }}>
+                        {sampleServices.map(service => (
+                            <Service {...service} />
+                        ))}
+                    </div>
                 </div>
             </div>
-        </div>
+        </div >
     )
 }
 

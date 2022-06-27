@@ -1,14 +1,15 @@
 
-import React from "react";
+import React, { HTMLAttributes } from "react";
 import styles from "../styles/components.module.css";
 
 type Props = {
     children: string;
+    type?: "button" | "submit" | "reset";
 }
 
-const Button: React.FC<Props> = ({ children }): JSX.Element => {
+const Button: React.FC<Props> = ({ children, type }): JSX.Element => {
     return (
-        <button className={styles.button}>
+        <button type={type ? type : "button"} className={styles.button}>
             {children}
         </button>
     )
