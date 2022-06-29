@@ -3,7 +3,7 @@ import uvicorn
 from sqlmodel import create_engine, SQLModel, Session, select
 #from shot_repository import select_all_barbers
 ######
-from models import Calendar, Barber, Client, ShowCase, rename_
+from models import Calendar, Barber, Client, ShowCase
 
 
 app = FastAPI()
