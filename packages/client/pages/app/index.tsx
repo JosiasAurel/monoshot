@@ -1,10 +1,11 @@
 
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { UserButton, useUser } from "@clerk/nextjs";
 import Link from "next/link";
 import Service from "../../components/Service";
 import Button from "../../components/Button";
 import styles from "../../styles/app.module.css";
+import { getHaircuts } from "../../utils/fetcher";
 
 type Service = {
     title: string
@@ -15,31 +16,19 @@ type Service = {
 
 const AppPage: React.FC = (): JSX.Element => {
 
+    const [haircuts, setHaircuts] = useState<any[]>([]);
+
+    useEffect(() => {
+
+        getHaircuts()
+            .then(results => {
+                console.log(results);
+                setHaircuts(results);
+            })
+
+    }, []);
     const user = useUser();
-    const sampleServices: Service[] = [
-        {
-            title: "Hair Cut",
-            description: "I will cut your hair till your skull cries out loud.",
-            price: "$100",
-            photo: "/hair1.webp"
-        },
-        {
-            title: "Hair Cut",
-            description: "I will cut your hair till your skull cries out loud.",
-            price: "$100",
-            photo: "/hair2.jpg"
-        },
-        {
-            title: "Hair Cut",
-            description: "I will cut your hair till your skull cries out loud.",
-            price: "$100"
-        },
-        {
-            title: "Hair Cut",
-            description: "I will cut your hair till your skull cries out loud.",
-            price: "$100"
-        }
-    ];
+
     return (
         <div>
             <header style={{
@@ -82,8 +71,13 @@ const AppPage: React.FC = (): JSX.Element => {
                         gridTemplateColumns: "1fr 1fr 1fr",
                         width: "90%"
                     }}>
-                        {sampleServices.map(service => (
-                            <Service {...service} />
+                        {haircuts.map(service => (
+                            <Service
+                                title={service.name}
+                                description={service.description}
+                                price={service.price}
+                                photo={service.image}
+                            />
                         ))}
                     </div>
                 </div>

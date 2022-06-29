@@ -44,6 +44,7 @@ class Client(SQLModel, table=True):
 class ShowCase(SQLModel, table=True):
     #id:Optional[int]=Field( primary_key=True)
     price: int
+    name: str
     image: str
     description: Optional[str] = Field(default=None)
     barber_id: Optional[int] = Field(

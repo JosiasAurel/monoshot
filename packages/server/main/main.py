@@ -12,7 +12,6 @@ eng = f'database_.db'
 sqlite_url = f'sqlite:///{eng}'
 engine = create_engine(sqlite_url, echo=True)
 
-
 @app.get("/barber")
 def select_all_barbers():
     with Session(engine) as session:
